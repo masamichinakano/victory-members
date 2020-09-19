@@ -16,7 +16,7 @@
 
 
 
-## elementary テーブル
+## members テーブル
 
 | Column            | Type       | Options     |
 | ------------------| -----------| ----------- |
