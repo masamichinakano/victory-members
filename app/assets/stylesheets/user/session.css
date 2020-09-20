@@ -8,9 +8,9 @@
 
 
 .main-session-contents {
-  margin: 0;
+  margin: 120px auto 120px;
   width: 500px;
-  height: 900px;
+  height: 410px;
   border: 1px solid black;
 }
 
