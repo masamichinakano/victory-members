@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_121336) do
+ActiveRecord::Schema.define(version: 2020_09_18_102531) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,24 @@ ActiveRecord::Schema.define(version: 2020_09_17_121336) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "school_year"
+    t.string "age"
+    t.string "tall", null: false
+    t.string "weight", null: false
+    t.integer "throwing", null: false
+    t.integer "hitting", null: false
+    t.integer "first_position", null: false
+    t.integer "second_position"
+    t.integer "third_position"
+    t.string "number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "director", null: false
@@ -50,4 +68,5 @@ ActiveRecord::Schema.define(version: 2020_09_17_121336) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "members", "users"
 end

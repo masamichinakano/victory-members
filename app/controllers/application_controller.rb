@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?  #sign_up, keys:はカラムを確認する
-
+  before_action :authenticate_user!, except: [:index]
   private
   # def basic_auth
   #   authenticate_or_request_with_http_basic do |username, password|  #完成後にコメントアウト解除
@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :director, :group, :tell])
   end
 end
