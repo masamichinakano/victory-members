@@ -7,10 +7,10 @@
 }
 
 
-.main-session-contents {
+.main-registration-contents {
   margin: 0;
   width: 500px;
-  height: 900px;
+  height: 100%;
   border: 1px solid black;
 }
 
