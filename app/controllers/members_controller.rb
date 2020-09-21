@@ -25,6 +25,20 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
   end
 
+  def edit
+    @member = Member.find(params[:id])
+  end
+
+  def update
+    # binding.pry
+    @member = Member.find(params[:id])
+    if @member.update(member_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   private
   def member_params
     params.require(:member).permit(:image, :name, :school_year_id, :age, :tall, :weight,:throwing_id, :hitting_id, :first_position_id, :second_position_id, :third_position_id, :number).merge(user_id: current_user.id)
