@@ -1,0 +1,34 @@
+<%= render "shared/header" %>
+
+<div class="registration">
+  <div class="member-contents-wrap">
+    <div class="member-header">
+      <p>選手一覧</p>
+    </div>
+    <ul class="position-lists">
+      <li class="position-list">
+        投手
+      </li>
+      <li class="position-list">
+        捕手
+      </li>
+      <li class="position-list">
+        内野手
+      </li>
+      <li class="position-list">
+        外野手
+      </li>
+    </ul>
+      <ul class="member-contents">
+        <% @members.each do |member| %>
+          <li class="member-content">
+            <%= link_to member_path(member.id) do %>
+            <%= image_tag member.image, class:"member-image" %>
+            <div class="member-name"><%= member.name %></div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+</div>
+<%= render "shared/footer" %>
