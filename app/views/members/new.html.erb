@@ -12,14 +12,14 @@
         <label class="form-text">名前</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :name, placeholder:"山田　太郎", class:"small-field" %>
+      <%= f.text_field :name, placeholder:"山田　太郎", class:"small-field", id:"member_name" %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">学年</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:school_year, SchoolYear.all, :id, :name, {}, {class:"small-field", id:"member_school_year"}) %>
+      <%= f.collection_select(:school_year_id, SchoolYear.all, :id, :name, {}, {class:"small-field", id:"member_school_year"}) %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
@@ -47,35 +47,35 @@
         <label class="form-text">投球</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:throwing, Throwing.all, :id, :name, {}, {class:"small-field", id:"member_throwing"}) %>
+      <%= f.collection_select(:throwing_id, Throwing.all, :id, :name, {}, {class:"small-field", id:"member_throwing"}) %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">打席</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:hitting, Hitting.all, :id, :name, {}, {class:"small-field", id:"member_hitting"}) %>
+      <%= f.collection_select(:hitting_id, Hitting.all, :id, :name, {}, {class:"small-field", id:"member_hitting"}) %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">守備位置①</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:first_position, FirstPosition.all, :id, :name, {}, {class:"small-field", id:"member_first_position"}) %>
+      <%= f.collection_select(:first_position_id, FirstPosition.all, :id, :name, {}, {class:"small-field", id:"member_first_position"}) %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">守備位置②</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:second_position, SecondPosition.all, :id, :name, {}, {class:"small-field", id:"member_second_position"}) %>
+      <%= f.collection_select(:second_position_id, SecondPosition.all, :id, :name, {}, {class:"small-field", id:"member_second_position"}) %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">守備位置③</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:third_position, ThirdPosition.all, :id, :name, {}, {class:"small-field", id:"member_third_position"}) %>
+      <%= f.collection_select(:third_position_id, ThirdPosition.all, :id, :name, {}, {class:"small-field", id:"member_third_position"}) %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
