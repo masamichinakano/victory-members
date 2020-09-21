@@ -40,7 +40,7 @@ header {
   margin-right: 50px;
 }
 
-li {
+.list-contents li {
   font-size: 20px;
   list-style: none;
 }
@@ -53,7 +53,23 @@ li {
 
 }
 
+.my-page {
+  margin-right: 50px;
+  color: rgb(20, 4, 245);
+  border: 1px solid rgb(20, 4, 245);
+  padding: 10px 20px;
+}
+
+
 .session {
+  margin-right: 20px;
+  color: rgb(20, 4, 245);
+  border: 1px solid rgb(20, 4, 245);
+  padding: 10px 20px;
+
+}
+
+.log-out {
   margin-right: 20px;
   color: rgb(20, 4, 245);
   border: 1px solid rgb(20, 4, 245);
@@ -92,6 +108,19 @@ li {
   position: absolute;
   top: 130px;
   right: 200px;
+}
+
+.main-menu-lists {
+  width: 200px;
+  height: 400px;
+  padding: 30px 0 0 20px;
+  border: 1px solid black;
+  position: absolute;
+}
+
+.main-menu-lists li {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .main-text h2 {

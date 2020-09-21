@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_102531) do
+ActiveRecord::Schema.define(version: 2020_09_20_103526) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,15 +35,15 @@ ActiveRecord::Schema.define(version: 2020_09_18_102531) do
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "school_year"
+    t.integer "school_year_id"
     t.string "age"
     t.string "tall", null: false
     t.string "weight", null: false
-    t.integer "throwing", null: false
-    t.integer "hitting", null: false
-    t.integer "first_position", null: false
-    t.integer "second_position"
-    t.integer "third_position"
+    t.integer "throwing_id", null: false
+    t.integer "hitting_id", null: false
+    t.integer "first_position_id", null: false
+    t.integer "second_position_id"
+    t.integer "third_position_id"
     t.string "number"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
