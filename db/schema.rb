@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_103526) do
+ActiveRecord::Schema.define(version: 2020_09_21_101725) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 2020_09_20_103526) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "pitcher_fielder", null: false
+    t.integer "catcher_fielder", null: false
+    t.integer "first_fielder", null: false
+    t.integer "second_fielder", null: false
+    t.integer "third_fielder", null: false
+    t.integer "short_fielder", null: false
+    t.integer "left_fielder", null: false
+    t.integer "center_fielder", null: false
+    t.integer "right_fielder", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
