@@ -17,8 +17,12 @@ class MembersController < ApplicationController
     end
   end
 
+  def player
+    @members = Member.all
+  end
 
-
+  def show
+  end
 
   private
   def member_params
