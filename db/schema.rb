@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 2020_09_21_101725) do
     t.integer "left_fielder", null: false
     t.integer "center_fielder", null: false
     t.integer "right_fielder", null: false
+    t.bigint "member_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_defences_on_member_id"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,5 +84,6 @@ ActiveRecord::Schema.define(version: 2020_09_21_101725) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "defences", "members"
   add_foreign_key "members", "users"
 end
