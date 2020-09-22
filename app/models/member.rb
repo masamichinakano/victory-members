@@ -13,6 +13,6 @@ class Member < ApplicationRecord
 
   validates :name, :tall, :weight, :throwing_id, :hitting_id, :first_position_id, presence: true
 
-  validates :school_year_id, :throwing_id, :hitting_id, :first_position_id, :second_position_id, :third_position_id, numericality: { other_than: 0 }
+  validates :school_year_id, :throwing_id, :hitting_id, :first_position_id, numericality: { other_than: 0 }
 
 end

@@ -34,15 +34,15 @@ ActiveRecord::Schema.define(version: 2020_09_21_101725) do
   end
 
   create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "pitcher_fielder", null: false
-    t.integer "catcher_fielder", null: false
-    t.integer "first_fielder", null: false
-    t.integer "second_fielder", null: false
-    t.integer "third_fielder", null: false
-    t.integer "short_fielder", null: false
-    t.integer "left_fielder", null: false
-    t.integer "center_fielder", null: false
-    t.integer "right_fielder", null: false
+    t.string "pitcher_fielder", null: false
+    t.string "catcher_fielder", null: false
+    t.string "first_fielder", null: false
+    t.string "second_fielder", null: false
+    t.string "third_fielder", null: false
+    t.string "short_fielder", null: false
+    t.string "left_fielder", null: false
+    t.string "center_fielder", null: false
+    t.string "right_fielder", null: false
     t.bigint "member_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

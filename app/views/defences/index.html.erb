@@ -1,37 +1,79 @@
 <%= render "shared/header" %>
-<%= form_with model: @defence, url: user_registration_path, class: "defence-main-wrap", local: true do |f| %>
+<%= form_with model: @defence, url: member_defences_path, class: "defence-main-wrap", local: true do |f| %>
 
   <div class="defence-main-image">
     <%= image_tag "779871.jpg", class:"defence-image" %>
     <select class="pitcher-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 1  || member.second_position_id == 1 || member.third_position_id == 1 %>
+        <option value=<%member.name%>><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="catcher-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 2 || member.second_position_id == 2 || member.third_position_id == 2 %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="first-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 3  || member.second_position_id == 3 || member.third_position_id == 3 %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="second-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 4  || member.second_position_id == 4 || member.third_position_id == 4 %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="third-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 5 || member.second_position_id == 5 || member.third_position_id == 5  %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="short-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 6  || member.second_position_id == 6 || member.third_position_id == 6 %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="left-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 8 || member.second_position_id == 8 || member.third_position_id == 8  %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="center-field">
       <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 8  || member.second_position_id == 8 || member.third_position_id == 8 %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <select class="right-field">
       <option>選手を選択してください</option>
-    </select>
-    <select class="bench-player">
-      <option>選手を選択してください</option>
+      <% @members.each do |member| %>
+        <% if member.first_position_id == 8 || member.second_position_id == 8 || member.third_position_id == 8 %>
+        <option><%= member.name %></option>
+        <% end %>
+      <% end %>
     </select>
     <div class="defence-next-btn">
       <%= f.submit "打順設定へ進む", class:"defence-btn" %>

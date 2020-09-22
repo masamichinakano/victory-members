@@ -3,9 +3,17 @@ class DefencesController < ApplicationController
   def index
     @defence = Defence.new
     @members = Member.all
+    # @member = Member.find(params[:id])
   end
 
   def create
+    binding.pry
+    @defence = Defence.new(defence_params)
+    if @defence.save
+      redirect_to root_path
+    else
+      render 'index'
+    end
   end
 
 
