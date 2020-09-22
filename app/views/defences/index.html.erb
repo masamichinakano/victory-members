@@ -1,0 +1,42 @@
+<%= render "shared/header" %>
+<%= form_with model: @defence, url: user_registration_path, class: "defence-main-wrap", local: true do |f| %>
+
+  <div class="defence-main-image">
+    <%= image_tag "779871.jpg", class:"defence-image" %>
+    <select class="pitcher-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="catcher-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="first-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="second-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="third-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="short-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="left-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="center-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="right-field">
+      <option>選手を選択してください</option>
+    </select>
+    <select class="bench-player">
+      <option>選手を選択してください</option>
+    </select>
+    <div class="defence-next-btn">
+      <%= f.submit "打順設定へ進む", class:"defence-btn" %>
+    </div>
+  </div>
+  
+<% end %>
+<%= render "shared/footer" %>
