@@ -1,0 +1,2 @@
+class Left < ApplicationRecord
+end

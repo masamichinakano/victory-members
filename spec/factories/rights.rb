@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :first_position do
+  factory :right do
     
   end
 end

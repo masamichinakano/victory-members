@@ -10,7 +10,7 @@ class CreateDefences < ActiveRecord::Migration[6.0]
       t.string :left_fielder, null: false
       t.string :center_fielder, null: false
       t.string :right_fielder, null: false
-      t.references :member, foreign_key: true
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
