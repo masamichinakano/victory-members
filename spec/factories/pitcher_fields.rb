@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :outside do
+  factory :pitcher_field do
     
   end
 end

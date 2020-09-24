@@ -1,2 +1,0 @@
-class Defence < ApplicationRecord
-end

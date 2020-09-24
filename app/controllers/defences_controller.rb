@@ -1,7 +1,7 @@
 class DefencesController < ApplicationController
 
   def index
-    @defence = Defence.new
+    # @defence = Defence.new
     @members = Member.all
     # @member = Member.find(params[:id])
   end

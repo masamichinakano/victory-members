@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_044335) do
+ActiveRecord::Schema.define(version: 2020_09_24_110002) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,42 +33,6 @@ ActiveRecord::Schema.define(version: 2020_09_24_044335) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "catchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "catcher_position", default: false, null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_catchers_on_member_id"
-  end
-
-  create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "match", null: false
-    t.bigint "pitcher_id", null: false
-    t.bigint "catcher_id", null: false
-    t.bigint "first_id", null: false
-    t.bigint "second_id", null: false
-    t.bigint "third_id", null: false
-    t.bigint "short_id", null: false
-    t.bigint "outside_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["catcher_id"], name: "index_defences_on_catcher_id"
-    t.index ["first_id"], name: "index_defences_on_first_id"
-    t.index ["outside_id"], name: "index_defences_on_outside_id"
-    t.index ["pitcher_id"], name: "index_defences_on_pitcher_id"
-    t.index ["second_id"], name: "index_defences_on_second_id"
-    t.index ["short_id"], name: "index_defences_on_short_id"
-    t.index ["third_id"], name: "index_defences_on_third_id"
-  end
-
-  create_table "firsts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "first_position", default: false, null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_firsts_on_member_id"
-  end
-
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "school_year_id", null: false
@@ -78,50 +42,25 @@ ActiveRecord::Schema.define(version: 2020_09_24_044335) do
     t.integer "throwing_id", null: false
     t.integer "hitting_id", null: false
     t.string "number", null: false
+    t.boolean "pitcher_position", default: false, null: false
+    t.boolean "catcher_position", default: false, null: false
+    t.boolean "first_position", default: false, null: false
+    t.boolean "second_position", default: false, null: false
+    t.boolean "third_position", default: false, null: false
+    t.boolean "short_position", default: false, null: false
+    t.boolean "outside_position", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
-  create_table "outsides", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "outside_position", default: false, null: false
-    t.bigint "member_id", null: false
+  create_table "pitcher_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "member_id_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_outsides_on_member_id"
-  end
-
-  create_table "pitchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "pitcher_position", default: false, null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_pitchers_on_member_id"
-  end
-
-  create_table "seconds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "second_position", default: false, null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_seconds_on_member_id"
-  end
-
-  create_table "shorts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "short_position", default: false, null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_shorts_on_member_id"
-  end
-
-  create_table "thirds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "third_position", default: false, null: false
-    t.bigint "member_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_thirds_on_member_id"
+    t.index ["member_id_id"], name: "index_pitcher_fields_on_member_id_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -141,19 +80,5 @@ ActiveRecord::Schema.define(version: 2020_09_24_044335) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "catchers", "members"
-  add_foreign_key "defences", "catchers"
-  add_foreign_key "defences", "firsts"
-  add_foreign_key "defences", "outsides"
-  add_foreign_key "defences", "pitchers"
-  add_foreign_key "defences", "seconds"
-  add_foreign_key "defences", "shorts"
-  add_foreign_key "defences", "thirds"
-  add_foreign_key "firsts", "members"
   add_foreign_key "members", "users"
-  add_foreign_key "outsides", "members"
-  add_foreign_key "pitchers", "members"
-  add_foreign_key "seconds", "members"
-  add_foreign_key "shorts", "members"
-  add_foreign_key "thirds", "members"
 end

@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe Short, type: :model do
+RSpec.describe PitcherField, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -3,79 +3,76 @@
 
   <div class="defence-main-image">
     <%= image_tag "779871.jpg", class:"defence-image" %>
-    <select class="pitcher-field", name="pitcher-field-name">
-      <option>選手を選択してください</option>
+    <% @members.each do |member| %>
+      <% if member.pitcher_position %>
+      <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"pitcher-field"} %>
+      <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+      <% end %>
+    <% end %>
+    <div>
       <% @members.each do |member| %>
-        <% if member.pitcher.pitcher_position %>
-        <%= member.name %>
-        <option><%= member.name %></option>
+        <% if member.catcher_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"catcher-field"} %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
-    </select>
-    <select class="catcher-field">
-      <option>選手を選択してください</option>
+    </div>
+    <div>
       <% @members.each do |member| %>
-        <% if member.catcher.catcher_position %>
-        <option><%= member.name %></option>
+        <% if member.first_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"first-field"} %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
-    </select>
-    <select class="first-field">
-      <option>選手を選択してください</option>
+    </div>
+    <div>
       <% @members.each do |member| %>
-        <% if member.first.first_position %>
-        <option><%= member.name %></option>
+        <% if member.second_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"second-field"} %>
+        <%# collection_select(:template, :name, templates, :id, :name, {:include_blank => true}) %>
         <% end %>
       <% end %>
-    </select>
-    <select class="second-field">
-      <option>選手を選択してください</option>
+    </div>
+    <div>
       <% @members.each do |member| %>
-        <% if member.second.second_position %>
-        <option><%= member.name %></option>
+        <% if member.third_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"third-field"} %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
-    </select>
-    <select class="third-field">
-      <option>選手を選択してください</option>
+    </div>
+    <div>
       <% @members.each do |member| %>
-        <% if member.third.third_position  %>
-        <option><%= member.name %></option>
+        <% if member.short_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"short-field"} %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
-    </select>
-    <select class="short-field">
-      <option>選手を選択してください</option>
+    </div>
+    <div>
       <% @members.each do |member| %>
-        <% if member.short.short_position %>
-        <option><%= member.name %></option>
+        <% if member.outside_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"left-field"} %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
-    </select>
-    <select class="left-field">
-      <option>選手を選択してください</option>
+    </div>
+    <div>
       <% @members.each do |member| %>
-        <%# <% if member.outside.outside_position %> %>
-        <option><%= member.name %></option>
-        <%# <% end %> %>
+        <% if member.outside_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"center-field"} %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
       <% end %>
-    </select>
-    <select class="center-field">
-      <option>選手を選択してください</option>
+    </div>
+    <div>
       <% @members.each do |member| %>
-        <%# <% if member.outside.outside_position %> %>
-        <option><%= member.name %></option>
-        <%# <% end %> %>
+        <% if member.outside_position %>
+        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"right-field"} %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
       <% end %>
-    </select>
-    <select class="right-field">
-      <option>選手を選択してください</option>
-      <% @members.each do |member| %>
-        <%# <% if member.outside.outside_position %> %>
-        <option><%= member.name %></option>
-        <%# <% end %> %>
-      <% end %>
-    </select>
+    </div>
     <div class="defence-next-btn">
       <%= f.submit "打順設定へ進む", class:"defence-btn" %>
     </div>
