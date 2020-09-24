@@ -116,26 +116,11 @@
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
-        <label class="form-text">左翼手</label>
+        <label class="form-text">外野手</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.check_box :left_position %>
+      <%= f.check_box :outside_position %>
     </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">中堅手</label>
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.check_box :center_position %>
-    </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">右翼手</label>
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.check_box :right_position %>
-    </div>
-
     <div class='register-btn'>
       <%= f.submit "選手登録", class:"register-send" %>
     </div>

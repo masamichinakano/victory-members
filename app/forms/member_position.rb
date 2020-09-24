@@ -1,7 +1,7 @@
 class MemberPosition
 
   include ActiveModel::Model
-  attr_accessor :image, :name, :school_year_id, :age, :tall, :weight, :throwing_id, :hitting_id, :number, :pitcher_position, :catcher_position, :first_position, :second_position, :third_position, :short_position, :left_position, :center_position, :right_position, :user_id
+  attr_accessor :image, :name, :school_year_id, :age, :tall, :weight, :throwing_id, :hitting_id, :number, :pitcher_position, :catcher_position, :first_position, :second_position, :third_position, :short_position, :outside_position, :user_id
 
 
 
@@ -14,9 +14,7 @@ class MemberPosition
     Second.create(second_position: second_position, member_id: member.id)
     Third.create(third_position: third_position, member_id: member.id)
     Short.create(short_position: short_position, member_id: member.id)
-    Left.create(left_position: left_position, member_id: member.id)
-    Center.create(center_position: center_position, member_id: member.id)
-    Right.create(right_position: right_position, member_id: member.id)
+    Outside.create(outside_position: outside_position, member_id: member.id)
   
   end
 

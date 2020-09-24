@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :right do
+  factory :outside do
     
   end
 end

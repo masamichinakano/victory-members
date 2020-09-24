@@ -8,9 +8,7 @@ class CreateDefences < ActiveRecord::Migration[6.0]
       t.references :second,    null:false, foreign_key: true
       t.references :third,     null:false, foreign_key: true
       t.references :short,     null:false, foreign_key: true
-      t.references :left,      null:false, foreign_key: true
-      t.references :center,    null:false, foreign_key: true
-      t.references :right,     null:false, foreign_key: true
+      t.references :outside,   null:false, foreign_key: true      
       t.timestamps
     end
   end

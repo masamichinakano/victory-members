@@ -55,25 +55,25 @@
     <select class="left-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.left.left_position %>
+        <%# <% if member.outside.outside_position %> %>
         <option><%= member.name %></option>
-        <% end %>
+        <%# <% end %> %>
       <% end %>
     </select>
     <select class="center-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.center.center_position %>
+        <%# <% if member.outside.outside_position %> %>
         <option><%= member.name %></option>
-        <% end %>
+        <%# <% end %> %>
       <% end %>
     </select>
     <select class="right-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.right.right_position %>
+        <%# <% if member.outside.outside_position %> %>
         <option><%= member.name %></option>
-        <% end %>
+        <%# <% end %> %>
       <% end %>
     </select>
     <div class="defence-next-btn">
