@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_043704) do
+ActiveRecord::Schema.define(version: 2020_09_24_010751) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -50,19 +50,27 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
   end
 
   create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "pitcher_fielder", null: false
-    t.string "catcher_fielder", null: false
-    t.string "first_fielder", null: false
-    t.string "second_fielder", null: false
-    t.string "third_fielder", null: false
-    t.string "short_fielder", null: false
-    t.string "left_fielder", null: false
-    t.string "center_fielder", null: false
-    t.string "right_fielder", null: false
-    t.bigint "user_id"
+    t.string "match", null: false
+    t.bigint "pitcher_id", null: false
+    t.bigint "catcher_id", null: false
+    t.bigint "first_id", null: false
+    t.bigint "second_id", null: false
+    t.bigint "third_id", null: false
+    t.bigint "short_id", null: false
+    t.bigint "left_id", null: false
+    t.bigint "center_id", null: false
+    t.bigint "right_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_defences_on_user_id"
+    t.index ["catcher_id"], name: "index_defences_on_catcher_id"
+    t.index ["center_id"], name: "index_defences_on_center_id"
+    t.index ["first_id"], name: "index_defences_on_first_id"
+    t.index ["left_id"], name: "index_defences_on_left_id"
+    t.index ["pitcher_id"], name: "index_defences_on_pitcher_id"
+    t.index ["right_id"], name: "index_defences_on_right_id"
+    t.index ["second_id"], name: "index_defences_on_second_id"
+    t.index ["short_id"], name: "index_defences_on_short_id"
+    t.index ["third_id"], name: "index_defences_on_third_id"
   end
 
   create_table "firsts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -155,7 +163,15 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "catchers", "members"
   add_foreign_key "centers", "members"
-  add_foreign_key "defences", "users"
+  add_foreign_key "defences", "catchers"
+  add_foreign_key "defences", "centers"
+  add_foreign_key "defences", "firsts"
+  add_foreign_key "defences", "lefts"
+  add_foreign_key "defences", "pitchers"
+  add_foreign_key "defences", "rights"
+  add_foreign_key "defences", "seconds"
+  add_foreign_key "defences", "shorts"
+  add_foreign_key "defences", "thirds"
   add_foreign_key "firsts", "members"
   add_foreign_key "lefts", "members"
   add_foreign_key "members", "users"
