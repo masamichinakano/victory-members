@@ -5,12 +5,12 @@ class MembersController < ApplicationController
   end
 
   def new
-    @member = Member.new
+    @member = MemberPosition.new
   end
 
   def create
     # binding.pry
-    @member = Member.new(member_params)
+    @member = MemberPosition.new(member_params)
     if @member.save
       redirect_to root_path
     else
@@ -53,7 +53,7 @@ class MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:image, :name, :school_year_id, :age, :tall, :weight,:throwing_id, :hitting_id, :first_position_id, :second_position_id, :third_position_id, :number).merge(user_id: current_user.id)
+    params.require(:member_position).permit(:image, :name, :school_year_id, :age, :tall, :weight, :throwing_id, :hitting_id, :number, :pitcher_position, :catcher_position, :first_position, :second_position, :third_position, :short_position, :left_position, :center_position, :right_position).merge(user_id: current_user.id)
   end
 
 

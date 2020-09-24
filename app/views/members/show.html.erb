@@ -6,9 +6,22 @@
       <p>選手詳細</p>
     </div>
     <div class="member-only-content">
+    
       <div class="member-only-image">
         <%= image_tag @member.image, class:"only-image" %>
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置①：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.pitcher.pitcher_position %>
+            <p>投手</p>
+          <% end %>
+          </div>
+        </div>
       </div>
+
+
       <div class="member-only-data-contents">
 
         <div class="only-data-content">
@@ -78,7 +91,9 @@
             <p>守備位置①：</p>
           </div>
           <div class="only-data-name">
-            <p><%= @member.first_position.name %></p>
+          <% if @member.pitcher.pitcher_position %>
+            <p>投手</p>
+          <% end %>
           </div>
         </div>
 
@@ -87,7 +102,9 @@
             <p>守備位置②：</p>
           </div>
           <div class="only-data-name">
-            <p><%= @member.second_position.name %></p>
+          <% if @member.catcher.catcher_position %>
+            <p>捕手</p>
+          <% end %>
           </div>
         </div>
 
@@ -96,7 +113,7 @@
             <p>守備位置③：</p>
           </div>
           <div class="only-data-name">
-            <p><%= @member.third_position.name %></p>
+            <%# <p><%= @member.third_position.name %></p> %>
           </div>
         </div>
 

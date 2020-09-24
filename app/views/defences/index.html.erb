@@ -6,17 +6,16 @@
     <select class="pitcher-field", name="pitcher-field-name">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 1 || member.second_position_id == 1 || member.third_position_id == 1 %>
+        <% if member.pitcher.pitcher_position %>
         <%= member.name %>
-        <%= f.select :pitcher_field, options_for_select(member.name) %>
-        <%# <input name="pitcher-field-name" type="hidden"> %>
+        <option><%= member.name %></option>
         <% end %>
       <% end %>
     </select>
     <select class="catcher-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 2 || member.second_position_id == 2 || member.third_position_id == 2 %>
+        <% if member.catcher.catcher_position %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>
@@ -24,7 +23,7 @@
     <select class="first-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 3  || member.second_position_id == 3 || member.third_position_id == 3 %>
+        <% if member.first.first_position %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>
@@ -32,7 +31,7 @@
     <select class="second-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 4  || member.second_position_id == 4 || member.third_position_id == 4 %>
+        <% if member.second.second_position %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>
@@ -40,7 +39,7 @@
     <select class="third-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 5 || member.second_position_id == 5 || member.third_position_id == 5  %>
+        <% if member.third.third_position  %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>
@@ -48,7 +47,7 @@
     <select class="short-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 6  || member.second_position_id == 6 || member.third_position_id == 6 %>
+        <% if member.short.short_position %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>
@@ -56,7 +55,7 @@
     <select class="left-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 8 || member.second_position_id == 8 || member.third_position_id == 8  %>
+        <% if member.left.left_position %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>
@@ -64,7 +63,7 @@
     <select class="center-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 8  || member.second_position_id == 8 || member.third_position_id == 8 %>
+        <% if member.center.center_position %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>
@@ -72,7 +71,7 @@
     <select class="right-field">
       <option>選手を選択してください</option>
       <% @members.each do |member| %>
-        <% if member.first_position_id == 8 || member.second_position_id == 8 || member.third_position_id == 8 %>
+        <% if member.right.right_position %>
         <option><%= member.name %></option>
         <% end %>
       <% end %>

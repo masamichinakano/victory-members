@@ -1,16 +1,16 @@
 class CreateDefences < ActiveRecord::Migration[6.0]
   def change
     create_table :defences do |t|
-      t.string :pitcher_fielder, null: false
-      t.string :catcher_fielder, null: false
-      t.string :first_fielder, null: false
-      t.string :second_fielder, null: false
-      t.string :third_fielder, null: false
-      t.string :short_fielder, null: false
-      t.string :left_fielder, null: false
-      t.string :center_fielder, null: false
-      t.string :right_fielder, null: false
-      t.references :user, foreign_key: true
+      t.string :match,         null:false
+      t.references :pitcher,   null:false, foreign_key: true
+      t.references :catcher,   null:false, foreign_key: true
+      t.references :first,     null:false, foreign_key: true
+      t.references :second,    null:false, foreign_key: true
+      t.references :third,     null:false, foreign_key: true
+      t.references :short,     null:false, foreign_key: true
+      t.references :left,      null:false, foreign_key: true
+      t.references :center,    null:false, foreign_key: true
+      t.references :right,     null:false, foreign_key: true
       t.timestamps
     end
   end

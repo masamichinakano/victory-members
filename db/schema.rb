@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "catchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "catcher_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_catchers_on_member_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "centers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "center_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_centers_on_member_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "firsts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "first_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_firsts_on_member_id"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "lefts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "left_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_lefts_on_member_id"
@@ -83,20 +83,22 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "school_year", null: false
+    t.integer "school_year_id", null: false
     t.string "age", null: false
     t.string "tall", null: false
     t.string "weight", null: false
     t.integer "throwing_id", null: false
     t.integer "hitting_id", null: false
     t.string "number", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "pitchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "pitcher_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_pitchers_on_member_id"
@@ -104,7 +106,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "rights", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "right_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_rights_on_member_id"
@@ -112,7 +114,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "seconds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "second_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_seconds_on_member_id"
@@ -120,7 +122,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "shorts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "short_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_shorts_on_member_id"
@@ -128,7 +130,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
 
   create_table "thirds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "third_position", default: false, null: false
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_thirds_on_member_id"
@@ -156,6 +158,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_043704) do
   add_foreign_key "defences", "users"
   add_foreign_key "firsts", "members"
   add_foreign_key "lefts", "members"
+  add_foreign_key "members", "users"
   add_foreign_key "pitchers", "members"
   add_foreign_key "rights", "members"
   add_foreign_key "seconds", "members"
