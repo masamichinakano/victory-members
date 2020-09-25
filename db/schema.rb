@@ -50,15 +50,15 @@ ActiveRecord::Schema.define(version: 2020_09_25_031903) do
   end
 
   create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "pitcher", null: false
-    t.integer "catcher", null: false
-    t.integer "first", null: false
-    t.integer "second", null: false
-    t.integer "third", null: false
-    t.integer "short", null: false
-    t.integer "left", null: false
-    t.integer "center", null: false
-    t.integer "right", null: false
+    t.integer "pitcher_id", null: false
+    t.integer "catcher_id", null: false
+    t.integer "first_id", null: false
+    t.integer "second_id", null: false
+    t.integer "third_id", null: false
+    t.integer "short_id", null: false
+    t.integer "left_id", null: false
+    t.integer "center_id", null: false
+    t.integer "right_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

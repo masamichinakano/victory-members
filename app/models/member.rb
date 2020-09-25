@@ -5,6 +5,7 @@ class Member < ApplicationRecord
   belongs_to_active_hash :hitting
 
   belongs_to :user
+  belongs_to :defence
 
   has_one_attached :image
 end

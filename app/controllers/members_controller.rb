@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   
   def index
     @members = Member.all
+    @defenses = Defence.all
   end
 
   def new
