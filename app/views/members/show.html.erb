@@ -6,11 +6,9 @@
       <p>選手詳細</p>
     </div>
     <div class="member-only-content">
+
       <div class="member-only-image">
         <%= image_tag @member.image, class:"only-image" %>
-      </div>
-      <div class="member-only-data-contents">
-
         <div class="only-data-content">
           <div class="only-data-list">
             <p>名前：</p>
@@ -19,7 +17,6 @@
             <p><%= @member.name %></p>
           </div>
         </div>
-
         <div class="only-data-content">
           <div class="only-data-list">
             <p>学年：</p>
@@ -28,16 +25,91 @@
             <p><%= @member.school_year.name %></p>
           </div>
         </div>
-
         <div class="only-data-content">
           <div class="only-data-list">
-            <p>年齢：</p>
+            <p>背番号：</p>
           </div>
           <div class="only-data-name">
-              <p><%= @member.age %></p>
+            <p><%= @member.number %></p>
           </div>
         </div>
 
+
+      </div>
+
+
+      <div class="member-only-data-contents">
+
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.pitcher_position %>
+            <p>投手</p>
+          <% end %>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.catcher_position %>
+            <p>捕手</p>
+          <% end %>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.first_position %>
+            <p>一塁手</p>
+          <% end %>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.second_position %>
+            <p>二塁手</p>
+          <% end %>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.third_position %>
+            <p>三塁手</p>
+          <% end %>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.short_position %>
+            <p>遊撃手</p>
+          <% end %>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="only-data-list">
+            <p>守備位置：</p>
+          </div>
+          <div class="only-data-name">
+          <% if @member.outside_position %>
+            <p>外野手</p>
+          <% end %>
+          </div>
+        </div>
         <div class="only-data-content">
           <div class="only-data-list">
             <p>身長：</p>
@@ -73,42 +145,6 @@
             <p><%= @member.hitting.name %></p>
           </div>
         </div>
-        <div class="only-data-content">
-          <div class="only-data-list">
-            <p>守備位置①：</p>
-          </div>
-          <div class="only-data-name">
-            <p><%= @member.first_position.name %></p>
-          </div>
-        </div>
-
-        <div class="only-data-content">
-          <div class="only-data-list">
-            <p>守備位置②：</p>
-          </div>
-          <div class="only-data-name">
-            <p><%= @member.second_position.name %></p>
-          </div>
-        </div>
-
-        <div class="only-data-content">
-          <div class="only-data-list">
-            <p>守備位置③：</p>
-          </div>
-          <div class="only-data-name">
-            <p><%= @member.third_position.name %></p>
-          </div>
-        </div>
-
-        <div class="only-data-content">
-          <div class="only-data-list">
-            <p>背番号：</p>
-          </div>
-          <div class="only-data-name">
-            <p><%= @member.number %></p>
-          </div>
-        </div>
-
       </div>
     </div>
     <div class="member-only-edit">

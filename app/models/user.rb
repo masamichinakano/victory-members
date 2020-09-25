@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :members
+  has_many :defences
+  # has_many :defences
 end

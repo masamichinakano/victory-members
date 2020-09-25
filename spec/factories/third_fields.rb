@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :first_position do
+  factory :third_field do
     
   end
 end

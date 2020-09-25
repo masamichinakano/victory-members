@@ -1,0 +1,119 @@
+.defence-main-wrap {
+  width: 100%;
+  height: 100%; 
+  padding: 0;
+ }
+ 
+ .defence-main-image {
+   width: 100%;
+   height: 688px;
+   padding: 0;
+   position: relative;
+ }
+ 
+ .defence-image {
+   width: 100%;
+   height: 688px;
+ }
+ 
+ select {
+   background-color: white;
+ }
+ 
+ .pitcher-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 370px;
+   left: 760px;
+ }
+ 
+ .catcher-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   bottom: 100px;
+   left: 760px;
+ }
+ 
+ .first-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 370px;
+   right: 350px;
+ }
+ 
+ .second-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 200px;
+   right: 550px;
+ }
+ 
+ .third-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 370px;
+   left: 350px;
+ }
+ 
+ .short-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 200px;
+   left: 550px;
+ }
+ 
+ .left-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 70px;
+   left: 300px;
+ }
+ 
+ .center-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 70px;
+   left: 760px;
+ }
+ 
+ .right-field {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   top: 70px;
+   right: 300px;
+ }
+ 
+ .bench-player {
+   width: 170px;
+   height: 30px;
+   position: absolute;
+   bottom: 100px;
+   left: 100px;
+ }
+ 
+ .defence-next-btn {
+   position: absolute;
+   bottom: 50px;
+   right: 50px;
+   
+ 
+ }
+ 
+ .defence-btn {
+   width: 160px;
+   height: 50px;
+   background-color: lightskyblue;
+   color: white;
+   font-size: 20px;
+ 
+ }
+ 

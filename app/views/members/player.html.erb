@@ -23,7 +23,7 @@
         <% @members.each do |member| %>
           <li class="member-content">
             <%= link_to member_path(member.id) do %>
-            <%= image_tag member.image, class:"member-image" %>
+            <%= image_tag member.image.variant(resize:'500x500'), class:"member-image" if member.image.attached? %>
             <div class="member-name"><%= member.name %></div>
             <% end %>
           </li>

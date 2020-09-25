@@ -1,0 +1,2 @@
+class CenterField < ApplicationRecord
+end

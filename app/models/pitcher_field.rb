@@ -1,0 +1,2 @@
+class PitcherField < ApplicationRecord
+end

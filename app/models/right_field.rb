@@ -1,0 +1,2 @@
+class RightField < ApplicationRecord
+end

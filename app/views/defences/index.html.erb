@@ -1,0 +1,78 @@
+<%= render "shared/header" %>
+<%= form_with model: @defence, url: member_defences_path, class: "defence-main-wrap", local: true do |f| %>
+
+  <div class="defence-main-image">
+    <%= image_tag "779871.jpg", class:"defence-image" %>
+    <%= f.collection_select(:pitcher, @members.where("pitcher_position"), :id, :name, {prompt:"選択してください"} , {class:"pitcher-field"})%>
+      <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.catcher_position %>
+        <%= f.collection_select(:catcher, @members.where("catcher_position"), :id, :name, {prompt: "選択してください"}, {class:"catcher-field"}) %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.first_position %>
+        <%= f.collection_select(:first, @members.where("first_position"), :id, :name, {prompt: "選択してください"}, {class:"first-field"}) %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.second_position %>
+        <%= f.collection_select(:second, @members.where("second_position"), :id, :name, {prompt: "選択してください"}, {class:"second-field"}) %>
+        <%# collection_select(:template, :name, templates, :id, :name, {:include_blank => true}) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.third_position %>
+        <%= f.collection_select(:third, @members.where("third_position"), :id, :name, {prompt: "選択してください"}, {class:"third-field"}) %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.short_position %>
+        <%= f.collection_select(:short, @members.where("short_position"), :id, :name, {prompt: "選択してください"}, {class:"short-field"}) %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.outside_position %>
+        <%= f.collection_select(:left, @members.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"left-field"}) %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.outside_position %>
+        <%= f.collection_select(:center, @members.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"center-field"}) %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% @members.each do |member| %>
+        <% if member.outside_position %>
+        <%= f.collection_select(:right, @members.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"right-field"}) %>
+        <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="defence-next-btn">
+      <%= f.submit "打順設定へ進む", class:"defence-btn" %>
+    </div>
+  </div>
+  
+<% end %>
+<%= render "shared/footer" %>

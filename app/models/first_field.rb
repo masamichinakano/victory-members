@@ -1,0 +1,2 @@
+class FirstField < ApplicationRecord
+end

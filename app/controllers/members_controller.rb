@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
   
   def index
+    @members = Member.all
   end
 
   def new
@@ -27,6 +28,7 @@ class MembersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
+    
   end
 
   def update
@@ -52,8 +54,12 @@ class MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:image, :name, :school_year_id, :age, :tall, :weight,:throwing_id, :hitting_id, :first_position_id, :second_position_id, :third_position_id, :number).merge(user_id: current_user.id)
+    params.require(:member).permit(:image, :name, :school_year_id, :age, :tall, :weight, :throwing_id, :hitting_id, :number, :pitcher_position, :catcher_position, :first_position, :second_position, :third_position, :short_position, :outside_position).merge(user_id: current_user.id)
   end
 
 
 end
+
+
+
+

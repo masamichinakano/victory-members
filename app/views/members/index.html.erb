@@ -11,7 +11,7 @@
         <li><%= link_to "マイページ", "#", class:"memu-list" %></li>        
         <li><%= link_to "選手登録", new_member_path, class:"memu-list" %></li>
         <li><%= link_to "選手一覧", player_members_path, class:"memu-list" %></li>
-        <li><%= link_to "スタメン設定", "#", class:"memu-list" %></li>
+        <li><%= link_to "スタメン設定", member_defences_path(@members), class:"memu-list" %></li>
         <li><%= link_to "スタメン履歴", "#", class:"memu-list" %></li>
       </ul>
     </div> 

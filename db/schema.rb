@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_101725) do
+ActiveRecord::Schema.define(version: 2020_09_25_031903) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,36 +33,114 @@ ActiveRecord::Schema.define(version: 2020_09_21_101725) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "pitcher_fielder", null: false
-    t.integer "catcher_fielder", null: false
-    t.integer "first_fielder", null: false
-    t.integer "second_fielder", null: false
-    t.integer "third_fielder", null: false
-    t.integer "short_fielder", null: false
-    t.integer "left_fielder", null: false
-    t.integer "center_fielder", null: false
-    t.integer "right_fielder", null: false
+  create_table "catcher_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "catcher_field_id", null: false
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_catcher_fields_on_member_id"
+  end
+
+  create_table "center_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "center_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_center_fields_on_member_id"
+  end
+
+  create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "pitcher", null: false
+    t.integer "catcher", null: false
+    t.integer "first", null: false
+    t.integer "second", null: false
+    t.integer "third", null: false
+    t.integer "short", null: false
+    t.integer "left", null: false
+    t.integer "center", null: false
+    t.integer "right", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_defences_on_user_id"
+  end
+
+  create_table "first_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "first_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_first_fields_on_member_id"
+  end
+
+  create_table "left_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "left_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_left_fields_on_member_id"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "school_year_id"
-    t.string "age"
+    t.integer "school_year_id", null: false
+    t.string "age", null: false
     t.string "tall", null: false
     t.string "weight", null: false
     t.integer "throwing_id", null: false
     t.integer "hitting_id", null: false
-    t.integer "first_position_id", null: false
-    t.integer "second_position_id"
-    t.integer "third_position_id"
-    t.string "number"
+    t.string "number", null: false
+    t.boolean "pitcher_position", default: false, null: false
+    t.boolean "catcher_position", default: false, null: false
+    t.boolean "first_position", default: false, null: false
+    t.boolean "second_position", default: false, null: false
+    t.boolean "third_position", default: false, null: false
+    t.boolean "short_position", default: false, null: false
+    t.boolean "outside_position", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "pitcher_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "pitcher_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_pitcher_fields_on_member_id"
+  end
+
+  create_table "right_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "right_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_right_fields_on_member_id"
+  end
+
+  create_table "second_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "second_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_second_fields_on_member_id"
+  end
+
+  create_table "short_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "short_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_short_fields_on_member_id"
+  end
+
+  create_table "third_fields", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "third_field_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_third_fields_on_member_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
