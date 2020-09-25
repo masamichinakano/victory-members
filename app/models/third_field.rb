@@ -1,0 +1,2 @@
+class ThirdField < ApplicationRecord
+end

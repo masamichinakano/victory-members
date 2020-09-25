@@ -3,16 +3,12 @@
 
   <div class="defence-main-image">
     <%= image_tag "779871.jpg", class:"defence-image" %>
-    <% @members.each do |member| %>
-      <% if member.pitcher_position %>
-      <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"pitcher-field"} %>
+    <%= f.collection_select(:pitcher, @members.where("pitcher_position"), :id, :name, {prompt:"選択してください"} , {class:"pitcher-field"})%>
       <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
-      <% end %>
-    <% end %>
     <div>
       <% @members.each do |member| %>
         <% if member.catcher_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"catcher-field"} %>
+        <%= f.collection_select(:catcher, @members.where("catcher_position"), :id, :name, {prompt: "選択してください"}, {class:"catcher-field"}) %>
         <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
@@ -20,7 +16,7 @@
     <div>
       <% @members.each do |member| %>
         <% if member.first_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"first-field"} %>
+        <%= f.collection_select(:first, @members.where("first_position"), :id, :name, {prompt: "選択してください"}, {class:"first-field"}) %>
         <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
@@ -28,7 +24,7 @@
     <div>
       <% @members.each do |member| %>
         <% if member.second_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"second-field"} %>
+        <%= f.collection_select(:second, @members.where("second_position"), :id, :name, {prompt: "選択してください"}, {class:"second-field"}) %>
         <%# collection_select(:template, :name, templates, :id, :name, {:include_blank => true}) %>
         <% end %>
       <% end %>
@@ -36,7 +32,7 @@
     <div>
       <% @members.each do |member| %>
         <% if member.third_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"third-field"} %>
+        <%= f.collection_select(:third, @members.where("third_position"), :id, :name, {prompt: "選択してください"}, {class:"third-field"}) %>
         <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
@@ -44,7 +40,7 @@
     <div>
       <% @members.each do |member| %>
         <% if member.short_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"short-field"} %>
+        <%= f.collection_select(:short, @members.where("short_position"), :id, :name, {prompt: "選択してください"}, {class:"short-field"}) %>
         <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
@@ -52,7 +48,7 @@
     <div>
       <% @members.each do |member| %>
         <% if member.outside_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"left-field"} %>
+        <%= f.collection_select(:left, @members.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"left-field"}) %>
         <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
@@ -60,7 +56,7 @@
     <div>
       <% @members.each do |member| %>
         <% if member.outside_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"center-field"} %>
+        <%= f.collection_select(:center, @members.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"center-field"}) %>
         <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>
@@ -68,7 +64,7 @@
     <div>
       <% @members.each do |member| %>
         <% if member.outside_position %>
-        <%= f.collection_select :member, @members, :id, :name, {prompt: "選択してください"}, {class:"right-field"} %>
+        <%= f.collection_select(:right, @members.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"right-field"}) %>
         <%# f.select( プロパティ名, タグの情報, {オプション}, {HTMLオプション} ) %>
         <% end %>
       <% end %>

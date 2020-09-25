@@ -1,0 +1,2 @@
+class ShortField < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CatcherField < ApplicationRecord
+end

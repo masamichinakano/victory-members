@@ -1,8 +1,10 @@
 class DefencesController < ApplicationController
 
   def index
-    # @defence = Defence.new
+    @defence = Defence.new
     @members = Member.all
+    # @positions = Member.where(pitcher_position: )
+    # pitcher_positions = @members.pitcher_position
     # @member = Member.find(params[:id])
   end
 
@@ -21,7 +23,7 @@ class DefencesController < ApplicationController
 
   private
   def defence_params
-    params.require(:defence).permit(:pitcher_fielder, :catcher_fielder, :first_fielder, :second_fielder, :third_fielder, :short_fielder, :left_fielder, :center_fielder, :right_fielder, member_id:[]).merge(user_id: current_user.id)
+    params.require(:defence).permit(:pitcher, :catcher, :first, :second, :third, :short, :left, :center, :right).merge(user_id: current_user.id)
   end
 
 end

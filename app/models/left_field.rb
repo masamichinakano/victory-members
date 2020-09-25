@@ -1,0 +1,2 @@
+class LeftField < ApplicationRecord
+end
