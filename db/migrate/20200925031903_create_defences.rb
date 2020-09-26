@@ -1,6 +1,8 @@
 class CreateDefences < ActiveRecord::Migration[6.0]
   def change
     create_table :defences do |t|
+      t.string :match_name, null: false
+      t.date :date, null: false
       t.integer :pitcher_id,   null: false
       t.integer :catcher_id,   null: false
       t.integer :first_id,   null: false

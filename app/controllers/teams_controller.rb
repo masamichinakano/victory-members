@@ -1,9 +1,10 @@
-class MembersController < ApplicationController
+class TeamsController < ApplicationController
   before_action :move_to_new_user_session, except: [:index]    
 
   def index
-    @members = Member.all
-    @defenses = Defence.all
+    @users = User.all
+    # @members = Member.all
+    # @defenses = Defence.all
   end
 
   def new
@@ -29,18 +30,20 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:id])
+    @users  = User.all
+
+    # @member = Member.find(params[:id])
   end
 
   def edit
-    @member = Member.find(params[:id])
+    @users = User.find(params[:id])
     
   end
 
   def update
     # binding.pry
-    @member = Member.find(params[:id])
-    if @member.update(member_params)
+    @users = User.find(params[:id])
+    if @user.update(user_params)
       redirect_to root_path
     else
       render 'edit'
@@ -48,8 +51,8 @@ class MembersController < ApplicationController
   end
 
   def destroy
-    @member = Member.find(params[:id])
-    if @member.destroy
+    @user = User.find(params[:id])
+    if @user.destroy
       redirect_to root_path
     else
       render 'show'
@@ -60,16 +63,11 @@ class MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:image, :name, :school_year_id, :age, :tall, :weight, :throwing_id, :hitting_id, :number, :pitcher_position, :catcher_position, :first_position, :second_position, :third_position, :short_position, :outside_position).merge(user_id: current_user.id)
+    params.require(:user).permit(:name, :director, :email, :encrypted_password, :group, :tell)
   end
 
   def move_to_new_user_session
     redirect_to new_user_session_path unless user_signed_in?   
   end
 
-
 end
-
-
-
-

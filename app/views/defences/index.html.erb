@@ -1,39 +1,16 @@
 <%= render "shared/header" %>
-<%= form_with model: @defence,  class: "defence-main-wrap", local: true do |f| %>
 
-  <div class="defence-main-image">
-    <%= image_tag "779871.jpg", class:"defence-image" %>
-    <div>
-      <%= f.collection_select(:pitcher_id, Member.where("pitcher_position"), :id, :name, {prompt:"選択してください"} , {class:"pitcher-field"})%>
-    </div>
-    <div>
-      <%= f.collection_select(:catcher_id, Member.where("catcher_position"), :id, :name, {prompt: "選択してください"}, {class:"catcher-field"}) %>
-    </div>
-    <div>
-      <%= f.collection_select(:first_id, Member.where("first_position"), :id, :name, {prompt: "選択してください"}, {class:"first-field"}) %>
-    </div>
-    <div>
-      <%= f.collection_select(:second_id, Member.where("second_position"), :id, :name, {prompt: "選択してください"}, {class:"second-field"}) %>
-    </div>
-    <div>
-      <%= f.collection_select(:third_id, Member.where("third_position"), :id, :name, {prompt: "選択してください"}, {class:"third-field"}) %>
-    </div>
-    <div>
-      <%= f.collection_select(:short_id, Member.where("short_position"), :id, :name, {prompt: "選択してください"}, {class:"short-field"}) %>
-    </div>
-    <div>
-      <%= f.collection_select(:left_id, Member.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"left-field"}) %>
-    </div>
-    <div>
-      <%= f.collection_select(:center_id, Member.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"center-field"}) %>
-    </div>
-    <div>
-      <%= f.collection_select(:right_id, Member.where("outside_position"), :id, :name, {prompt: "選択してください"}, {class:"right-field"}) %>
-    </div>
-    <div class="defence-next-btn">
-      <%= f.submit "打順設定へ進む", class:"defence-btn" %>
-    </div>
+<div class="defence-main-wrap">
+  <div class="defence-wrap">
+    <ul class="defence-menu-lists">
+      <%# <li><%= link_to "マイページ", "#", class:"memu-list" %></li>         %>
+      <%# <li><%= link_to "選手登録", new_member_path, class:"memu-list" %></li> %>
+      <%# <li><%= link_to "選手一覧", player_members_path, class:"memu-list" %></li> %>
+      <li><%= link_to "スタメン設定", new_team_defence_path, class:"memu-list" %></li>
+      <%# <li><%= link_to "スタメン設定", new_defence_path, class:"memu-list" %></li> %>
+
+    </ul>
   </div>
-  
-<% end %>
+</div>
+
 <%= render "shared/footer" %>

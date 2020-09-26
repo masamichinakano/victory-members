@@ -1,0 +1,60 @@
+<%= render "shared/header" %>
+
+<div class="registration">
+  <div class="team-contents-wrap">
+    <div class="member-header">
+      <p>チーム情報</p>
+    </div>
+    <div class="team-contents">
+      <% @users.each do |user| %>
+        <div class="only-data-content">
+          <div class="team-data-list">
+            <p>名前：</p>
+          </div>
+          <div class="team-data-name">
+            <p><%= user.name %></p>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="team-data-list">
+            <p>監督：</p>
+          </div>
+          <div class="team-data-name">
+            <p><%= user.director %></p>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="team-data-list">
+            <p>メールアドレス：</p>
+          </div>
+          <div class="team-data-name">
+            <p><%= user.email %></p>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="team-data-list">
+            <p>属性：</p>
+          </div>
+          <div class="team-data-name">
+            <p><%= user.group %></p>
+          </div>
+        </div>
+        <div class="only-data-content">
+          <div class="team-data-list">
+            <p>電話番号：</p>
+          </div>
+          <div class="team-data-name">
+            <p><%= user.tell %></p>
+          </div>
+        </div>
+
+        <% end %>
+        <div class="team-edit">
+          <%= link_to "編集", "#", method: :get, class:"team-only-edit-btn" %>
+          <%= link_to "削除", "#", method: :delete, class:"team-only-edit-btn" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

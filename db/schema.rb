@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_031903) do
   end
 
   create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "match_name", null: false
+    t.date "date", null: false
     t.integer "pitcher_id", null: false
     t.integer "catcher_id", null: false
     t.integer "first_id", null: false

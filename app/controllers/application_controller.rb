@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # before_action :authenticate_user!, except: only: [:index]
   # # before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?  #sign_up, keys:はカラムを確認する
   # before_action :authenticate_user!, except: [:index]
